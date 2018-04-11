@@ -1,23 +1,32 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { DrawerNavigator }from 'react-navigation';
+
+import HomePage  from './app/pages/home/home';
+import AboutPage from './app/pages/about/about';
+
 
 export default class App extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-      </View>
+      
+        <Drawer />
+      
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+const Drawer = DrawerNavigator(
+  {
+  Home:{
+    screen:HomePage
   },
-});
+  About:{
+    screen:AboutPage
+  }
+  },{
+    initialRouteName:'Home'
+  });
+
+
+
